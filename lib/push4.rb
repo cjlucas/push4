@@ -21,7 +21,6 @@ module Push4
     attr_accessor :sound
 
     simple_fields = [
-      :user_credentials,
       :message,
       :long_message,
       :long_message_preview,
@@ -33,7 +32,12 @@ module Push4
 
     def initialize
       @data = {}
-      @data['user_credentials'] = Push4.user_credentials
+      self.user_credentials = Push4.user_credentials
+    end
+
+    def user_credentials=(user_credentials)
+      @user_credentials = user_credentials
+      @data['user_credentials'] = user_credentials
     end
 
     def message_level=(message_level)
@@ -79,7 +83,7 @@ module Push4
 
     def self.assert_num_in_range(num, range)
       unless range.include?(num)
-        raise ArgumentError.new("Expected number between #{range}")
+        raise ArgumentError, "Expected number between #{range}"
       end
     end
   end

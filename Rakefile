@@ -4,7 +4,7 @@ require 'rake/testtask'
 
 require 'push4/version'
 
-task :default => [:build]
+task :default => [:test]
 
 task :test do
   Rake::TestTask.new do |t|

@@ -1,6 +1,6 @@
 require 'net/http'
 
-module Push4
+module Faast
   URL = 'https://www.appnotifications.com/account/notifications.json'
   
   class << self
@@ -32,7 +32,7 @@ module Push4
 
     def initialize
       @data = {}
-      self.user_credentials = Push4.user_credentials
+      self.user_credentials = Faast.user_credentials
     end
 
     def user_credentials=(user_credentials)

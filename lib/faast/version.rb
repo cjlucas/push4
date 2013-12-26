@@ -1,4 +1,4 @@
-module Push4
+module Faast
   class Version
     MAJOR = 0
     MINOR = 1

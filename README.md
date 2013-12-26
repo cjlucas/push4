@@ -1,7 +1,7 @@
-[![Coverage Status](https://coveralls.io/repos/cjlucas/ruby-push4/badge.png)](https://coveralls.io/r/cjlucas/ruby-push4)
-[![Build Status](https://travis-ci.org/cjlucas/ruby-push4.png?branch=master)](https://travis-ci.org/cjlucas/ruby-push4)
+[![Coverage Status](https://coveralls.io/repos/cjlucas/ruby-faast/badge.png)](https://coveralls.io/r/cjlucas/ruby-faast)
+[![Build Status](https://travis-ci.org/cjlucas/ruby-faast.png?branch=master)](https://travis-ci.org/cjlucas/ruby-faast)
 
-This is a simple library for the [Push 4.0](http://www.appnotifications.com/) API.
+This is a simple library for the [Faast](http://www.faast.io/) push notification service.
 
 Currently only the REST API is supported.
 
@@ -9,13 +9,13 @@ Currently only the REST API is supported.
 ## Synopsis ##
 
 ```ruby
-require 'push4'
+require 'faast'
 
 # user credentials can be set at the module level or directly in the Notification instance
-Push4.user_credentials = push4_key
+Faast.user_credentials = 'api_key'
 
 # create a notification instance
-notification = Push4::Notification.new
+notification = Faast::Notification.new
 
 notification.title    = 'This is the title'
 notification.message  = 'This is the message'
@@ -25,7 +25,7 @@ notification.send
 # => #<Net::HTTPOK 200 OK readbody=true>
 
 # or use the block interface (this is prefered)
-resp = Push4::Notification.send do |notification|
+resp = Faast::Notification.send do |notification|
   notification.title    = 'This is the title'
   notification.message  = 'This is the message'
   notfication.icon_url  = 'https://github.com/favicon.ico'
